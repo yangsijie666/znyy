@@ -14,6 +14,5 @@ def convert_order_to_order_describe_response(order: Order) -> Response:
                                                                 order_ext_id=order.order_ext_id,
                                                                 merged_product_type=order.merged_product_type,
                                                                 product_type=order.product_type,
-                                                                create_time=time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                                          time.localtime(
-                                                                                              order.create_time))))
+                                                                create_time=order.create_time.strftime(
+                                                                    "%Y-%m-%d %H:%M:%S.%f")))

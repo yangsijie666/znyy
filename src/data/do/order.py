@@ -1,20 +1,21 @@
-# DO：对应数据表，与数据表字段一一映射
-class OrderDO:
-    id: int
-    order_id: int
-    user_id: str
-    order_ext_id: str
-    merged_product_type: str
-    product_type: str
-    create_time: float
+# DO：对应数据表，与数据表字段一一映射（可以只取关注的字段）
+from typing import Type
 
-    def __init__(self, id: int, order_id: int, user_id: str, order_ext_id: str, merged_product_type: str,
-                 product_type: str,
-                 create_time: float):
-        self.id = id
-        self.order_id = order_id
-        self.user_id = user_id
-        self.order_ext_id = order_ext_id
-        self.merged_product_type = merged_product_type
-        self.product_type = product_type
-        self.create_time = create_time
+from peewee import *
+
+
+class OrderDO(Model):
+    id = BigIntegerField(primary_key=True)
+    userId = CharField()
+    orderExtId = CharField()
+    mergedProductType = CharField()
+    productType = CharField()
+    createTime = TimestampField()
+
+    @classmethod
+    def set_database(cls, db: Database) -> Type[Model]:
+        cls._meta.database = db
+        return cls
+
+    class Meta:
+        table_name = 'lxy_order'

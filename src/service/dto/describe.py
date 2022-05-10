@@ -32,7 +32,7 @@ class OrderDescribeResponseData(BaseModel):
     id: int
     user_id: str
     order_ext_id: str
-    merged_product_type: str
+    merged_product_type: Optional[str] = None
     product_type: str
     create_time: str
 

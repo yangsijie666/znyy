@@ -1,13 +1,16 @@
+import datetime
+
+
 class Order:
     order_id: int
     user_id: str
     order_ext_id: str
     merged_product_type: str
     product_type: str
-    create_time: float
+    create_time: datetime.datetime
 
     def __init__(self, order_id: int, user_id: str, order_ext_id: str, merged_product_type: str, product_type: str,
-                 create_time: float):
+                 create_time: datetime.datetime):
         self.order_id = order_id
         self.user_id = user_id
         self.order_ext_id = order_ext_id

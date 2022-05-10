@@ -12,8 +12,11 @@ class Settings(BaseSettings):
     # 日志目录
     LOG_PATH = os.getcwd()
     # 数据库配置
-    DRIVER = 'mysql'
-    SOURCE = 'root:root@tcp(127.0.0.1:3306)/test'
+    DB_NAME = 'znyy'
+    DB_HOST = '127.0.0.1'
+    DB_PORT = 3306
+    DB_USER = 'root'
+    DB_PASSWORD = '123456'
 
     PRODUCT = 'ZNYY'
 
